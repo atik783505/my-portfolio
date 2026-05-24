@@ -45,35 +45,15 @@ export default function LoadingScreen() {
           .to(".loading-screen", {
             display: "none",
             onComplete: () => {
-              // Enable scrolling
+              // Re-enable scrolling — Hero entrance handled by Framer Motion
               document.body.style.overflow = "";
-              
-              // Trigger the hero entrance animation
-              gsap.timeline()
-                .fromTo(".hero-reveal", 
-                  { y: 60, opacity: 0 }, 
-                  { y: 0, opacity: 1, duration: 1.2, stagger: 0.15, ease: "power4.out" }
-                )
-                .fromTo(".hero-line-y",
-                  { scaleY: 0 },
-                  { scaleY: 1, duration: 1.5, ease: "power3.inOut" },
-                  "-=1"
-                )
-                .fromTo(".hero-line-x",
-                  { scaleX: 0 },
-                  { scaleX: 1, duration: 1.5, ease: "power3.inOut" },
-                  "-=1.5"
-                )
-                .fromTo(".hero-card-reveal",
-                  { scale: 0.9, opacity: 0 },
-                  { scale: 1, opacity: 1, duration: 1.2, ease: "power4.out" },
-                  "-=1"
-                )
-                .fromTo("nav",
-                  { y: -50, opacity: 0 },
-                  { y: 0, opacity: 1, duration: 1, ease: "power3.out" },
-                  "-=0.8"
-                );
+
+              // Animate navbar in
+              gsap.fromTo(
+                "nav",
+                { y: -50, opacity: 0 },
+                { y: 0, opacity: 1, duration: 1, ease: "power3.out" }
+              );
             }
           });
       }
