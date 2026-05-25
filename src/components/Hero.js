@@ -131,10 +131,13 @@ export default function Hero() {
                 </a>
               </Magnetic>
               <Magnetic>
-                <a id="hero-cta-secondary" href="#contact"
+                <a id="hero-cta-secondary" href="https://drive.google.com/uc?export=download&id=1dkTEW5QkXE-HRRoEP9j2-VPFStbR6IlL"
+                  target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center gap-2.5 font-syne font-semibold text-sm text-text px-8 py-3.5 rounded-xl border border-glass-border bg-glass backdrop-blur-lg transition-all duration-300 hover:border-glass-border-hover hover:bg-glass-hover hover:shadow-[0_8px_24px_rgba(0,0,0,0.3)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40">
-                  Get In Touch
-                  <span className="text-accent text-base leading-none">✦</span>
+                  Download Resume
+                  <svg className="w-4 h-4 text-accent transition-transform duration-300 group-hover:translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                  </svg>
                 </a>
               </Magnetic>
             </motion.div>
