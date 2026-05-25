@@ -9,9 +9,9 @@ export default function Footer() {
   return (
     <footer className="relative z-[2] border-t border-glass-border pt-16 pb-10 bg-bg/90 backdrop-blur-md select-none">
       <div className="max-w-[1100px] mx-auto px-8">
-        
+
         <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr] gap-12 mb-16 text-left">
-          
+
           {/* Column 1: Brand */}
           <div className="footer-brand space-y-4">
             <div className="font-syne font-extrabold text-[22px] tracking-tight">
@@ -41,10 +41,10 @@ export default function Footer() {
                 atik13672@gmail.com
               </a>
               <a href="tel:+88012345678" className="text-muted text-[13px] hover:text-accent transition-colors w-max font-light">
-                +880 123 456 78
+                +88001600690954
               </a>
               <div className="text-[13px] text-muted/60 font-light">
-                Feni, Bangladesh
+                Cumilla, Bangladesh
               </div>
             </div>
           </div>

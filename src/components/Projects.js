@@ -9,7 +9,7 @@ const projects = [
   {
     title: "Idea Vault — Secure Project & Concept Repository",
     desc: "A full-stack secure repository for developers to log, categorize, and track project concepts. Built with a decoupled architecture featuring structured JWT-based authentication, complete RESTful CRUD operations, and a polished dashboard for asset management.",
-    icon: "/Images/ideavault.PNG",
+    icon: "/Images/ideavault.png",
     tags: ["Next.js", "HeroUI", "JWT", "Express.js", "Node.js", "MongoDB"], // Decoupled Stack
     links: { demo: "https://a09-ideavault.vercel.app/", github: "https://github.com/atik783505/a09-ideavault" },
     featured: true
@@ -17,7 +17,7 @@ const projects = [
   {
     title: "Tiles Gallery — Full-Stack Authentication Showcase", // Namer sathe detail title text add kora hoyeche
     desc: "A responsive full-stack platform featuring custom category filtering, dynamic image galleries, and secure session management.",
-    icon: "/Images/tiles-gallery.PNG", // Apnar exact image path ta intact rakhlam
+    icon: "/Images/tiles-gallery.png", // Apnar exact image path ta intact rakhlam
     tags: ["Next.js", "Better Auth", "MongoDB", "Tailwind CSS"],
     links: {
       demo: "https://tiles-gallery-a8-sable.vercel.app/", // Live URL link
@@ -39,7 +39,7 @@ const projects = [
   {
     title: "DigiTools — All-in-One Utility Platform", // Dynamic multi-tool descriptive title
     desc: "A responsive multi-category platform grouping essential utility tools, text/image editors, and AI processors into a single unified workspace.",
-    icon: "/Images/digi-tools.PNG", // Kept your exact asset path reference
+    icon: "/Images/digi-tools.png", // Kept your exact asset path reference
     tags: ["React.js", "Tailwind CSS", "ES6+", "State Management"], // Accurate tech stack array
     links: {
       demo: "https://radiant-axolotl-145853.netlify.app/", // Live link placeholder
