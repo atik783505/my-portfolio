@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import Image from "next/image";
+import "devicon/devicon.min.css";
 
 /* ─── Skill progress bars ────────────────────────────────────── */
 const skillBars = [
@@ -15,25 +15,25 @@ const skillBars = [
   { name: "Google Cloud Platform", level: 82, category: "Cloud" },
 ];
 
-/* ─── Tech stack icons — all via CDN for next/image optimisation ─ */
+/* ─── Tech stack icons ───────────────────────────────────────── */
 const staticSkills = [
-  { name: "HTML5", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg", w: 18, h: 18 },
-  { name: "CSS3", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg", w: 18, h: 18 },
-  { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", w: 18, h: 18 },
-  { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", w: 18, h: 18 },
-  { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg", w: 18, h: 18, invert: true },
-  { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg", w: 18, h: 18 },
-  { name: "Express", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg", w: 18, h: 18, invert: true },
-  { name: "Tailwind CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg", w: 18, h: 18 },
-  { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg", w: 18, h: 18 },
-  { name: "Vite", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vite/vite-original.svg", w: 18, h: 18 },
-  { name: "Vercel", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg", w: 18, h: 18, invert: true },
-  { name: "Netlify", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg", w: 18, h: 18 },
-  { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", w: 18, h: 18 },
-  { name: "GitHub", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg", w: 18, h: 18, invert: true },
-  { name: "RESTful API", icon: "https://img.icons8.com/ios-filled/50/api.png", w: 18, h: 18, invert: true },
-  { name: "UI Libraries", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg", w: 18, h: 18 },
-  { name: "Better Auth", icon: "https://img.icons8.com/isometric/50/shield.png", w: 18, h: 18 },
+  { name: "HTML5", iconClass: "devicon-html5-plain colored" },
+  { name: "CSS3", iconClass: "devicon-css3-plain colored" },
+  { name: "JavaScript", iconClass: "devicon-javascript-plain colored" },
+  { name: "React", iconClass: "devicon-react-original colored" },
+  { name: "Next.js", iconClass: "devicon-nextjs-original colored" },
+  { name: "Node.js", iconClass: "devicon-nodejs-plain colored" },
+  { name: "Express", iconClass: "devicon-express-original colored" },
+  { name: "Tailwind CSS", iconClass: "devicon-tailwindcss-original colored" },
+  { name: "MongoDB", iconClass: "devicon-mongodb-plain colored" },
+  { name: "Vite", iconClass: "devicon-vite-plain colored" },
+  { name: "Vercel", iconClass: "devicon-vercel-original colored" },
+  { name: "Netlify", iconClass: "devicon-netlify-plain colored" },
+  { name: "Git", iconClass: "devicon-git-plain colored" },
+  { name: "GitHub", iconClass: "devicon-github-original colored" },
+  { name: "RESTful API", iconClass: "devicon-postman-plain colored" },
+  { name: "UI Libraries", iconClass: "devicon-materialui-plain colored" },
+  { name: "Better Auth", iconClass: "devicon-oauth-plain colored" },
 ];
 
 /* ─── Animated count-up number ──────────────────────────────── */
@@ -70,22 +70,7 @@ const itemVariants = {
   show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 110, damping: 18 } },
 };
 
-/* ─── Skill icon using next/image ────────────────────────────── */
-function SkillIcon({ icon, name, invert }) {
-  return (
-    <div className="relative w-[18px] h-[18px] shrink-0 flex items-center justify-center">
-      <Image
-        src={icon}
-        alt={name}
-        width={18}
-        height={18}
-        className={`object-contain pointer-events-none transition-transform duration-300 group-hover:scale-110${invert ? " brightness-0 invert" : ""}`}
-        loading="lazy"
-        unoptimized={icon.endsWith(".svg")}  // SVGs served as-is; rasters get optimised
-      />
-    </div>
-  );
-}
+
 
 /* ─── Main Section ───────────────────────────────────────────── */
 export default function Skills() {
@@ -181,7 +166,7 @@ export default function Skills() {
                     whileHover={{ scale: 1.06, borderColor: "var(--color-accent)" }}
                     className="inline-flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white/[0.02] border border-glass-border backdrop-blur-sm transition-colors duration-300 group cursor-default"
                   >
-                    <SkillIcon icon={skill.icon} name={skill.name} invert={skill.invert} />
+                    <i className={`${skill.iconClass} text-xl`}></i>
                     <span className="font-syne font-medium text-[13px] text-muted group-hover:text-white transition-colors duration-300 select-none">
                       {skill.name}
                     </span>

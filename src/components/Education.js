@@ -18,13 +18,6 @@ const education = [
     desc: "Comprehensive training in MongoDB, Express.js, React, Node.js, Firebase Auth, Tailwind CSS, and web performance optimization.",
     badge: "💻 Fullstack MERN",
   },
-  {
-    year: "2024 — Present",
-    degree: "Open Source Contributor & Self-Learning",
-    school: "💡 GitHub & Web Dev Community",
-    desc: "Developing production-grade Next.js, Tailwind CSS, and Node.js projects, focusing on highly interactive, animated user interfaces.",
-    badge: "🔥 340+ GitHub Stars",
-  },
 ];
 
 function EducationCard({ item, idx }) {
@@ -35,7 +28,7 @@ function EducationCard({ item, idx }) {
     const { left, top } = cardRef.current.getBoundingClientRect();
     const x = e.clientX - left;
     const y = e.clientY - top;
-    
+
     cardRef.current.style.setProperty("--mouse-x", `${x}px`);
     cardRef.current.style.setProperty("--mouse-y", `${y}px`);
   };
@@ -75,11 +68,11 @@ function EducationCard({ item, idx }) {
         <h3 className="font-syne font-bold text-lg leading-tight text-text group-hover:text-accent transition-colors duration-300">
           {item.degree}
         </h3>
-        
+
         <div className="text-xs text-muted/80 font-medium select-none">
           {item.school}
         </div>
-        
+
         <p className="text-[13px] text-muted/65 leading-relaxed font-light">
           {item.desc}
         </p>
@@ -101,7 +94,7 @@ export default function Education() {
       <div className="absolute inset-0 grid-overlay pointer-events-none z-0 opacity-40" />
 
       <div className="max-w-[1100px] mx-auto px-8 relative z-[2]">
-        
+
         {/* Section Header */}
         <div className="flex items-center gap-2.5 font-mono text-[11px] text-accent tracking-[0.18em] uppercase mb-4 before:content-[''] before:block before:w-6 before:h-px before:bg-accent select-none">
           Education

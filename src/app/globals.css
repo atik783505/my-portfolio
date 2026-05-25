@@ -69,9 +69,26 @@
   --r: 20px;
 }
 
+:root[data-theme="light"] {
+  --color-bg: #f8f7ff;
+  --color-surface: rgba(0, 0, 0, 0.02);
+  --color-glass: rgba(0, 0, 0, 0.03);
+  --color-glass-hover: rgba(0, 0, 0, 0.05);
+  --color-glass-border: rgba(0, 0, 0, 0.08);
+  --color-glass-border-hover: rgba(0, 0, 0, 0.15);
+  --color-text: #0b0b14;
+  --color-muted: rgba(11, 11, 20, 0.65);
+  --color-faint: rgba(11, 11, 20, 0.08);
+  --color-accent: #05a065;
+  --color-accent2: #6d28d9;
+  --color-accent3: #be185d;
+}
+
 body {
   cursor: none;
   background-color: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 @layer utilities {
@@ -104,8 +121,8 @@ body {
   .grid-overlay {
     background-size: 50px 50px;
     background-image: 
-      linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+      linear-gradient(to right, var(--color-faint) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--color-faint) 1px, transparent 1px);
     mask-image: radial-gradient(circle, black, transparent 80%);
     -webkit-mask-image: radial-gradient(circle, black, transparent 80%);
   }

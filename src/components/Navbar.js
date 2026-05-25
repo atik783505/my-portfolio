@@ -15,6 +15,27 @@ const navLinks = [
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState("home");
   const [isOpen, setIsOpen] = useState(false);
+  const [theme, setTheme] = useState("dark");
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("portfolio-theme");
+    if (savedTheme) {
+      setTheme(savedTheme);
+      document.documentElement.setAttribute("data-theme", savedTheme);
+    } else {
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const initialTheme = prefersDark ? "dark" : "light";
+      setTheme(initialTheme);
+      document.documentElement.setAttribute("data-theme", initialTheme);
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const nextTheme = theme === "dark" ? "light" : "dark";
+    setTheme(nextTheme);
+    document.documentElement.setAttribute("data-theme", nextTheme);
+    localStorage.setItem("portfolio-theme", nextTheme);
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -95,7 +116,21 @@ export default function Navbar() {
         </ul>
 
         {/* Right Side: Desktop CTA */}
-        <div className="hidden md:block">
+        <div className="hidden md:flex items-center gap-4">
+          <Magnetic range={30} actionShift={0.2}>
+            <button
+              onClick={toggleTheme}
+              className="cursor-pointer text-muted hover:text-text p-2.5 rounded-full bg-glass border border-glass-border hover:border-glass-border-hover transition-all duration-300 flex items-center justify-center"
+              aria-label="Toggle Theme"
+            >
+              {theme === "dark" ? (
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-moon"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+              )}
+            </button>
+          </Magnetic>
+
           <Magnetic range={30} actionShift={0.2}>
             <button
               onClick={scrollToContact}
@@ -106,8 +141,20 @@ export default function Navbar() {
           </Magnetic>
         </div>
 
-        {/* Mobile Toggle Button */}
-        <div className="flex md:hidden items-center">
+        {/* Mobile Actions */}
+        <div className="flex md:hidden items-center gap-3">
+          <button
+            onClick={toggleTheme}
+            className="cursor-pointer text-muted hover:text-text p-2 rounded-full bg-glass border border-glass-border flex items-center justify-center"
+            aria-label="Toggle Theme"
+          >
+            {theme === "dark" ? (
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            )}
+          </button>
+
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="cursor-pointer flex flex-col gap-1.5 justify-center items-center w-8 h-8 rounded-full border border-glass-border bg-glass-hover"
