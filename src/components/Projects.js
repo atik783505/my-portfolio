@@ -20,7 +20,7 @@ const projects = [
     icon: "/Images/tiles-gallery.png", // Apnar exact image path ta intact rakhlam
     tags: ["Next.js", "Better Auth", "MongoDB", "Tailwind CSS"],
     links: {
-      demo: "https://tiles-gallery-a8-sable.vercel.app/", // Live URL link
+      demo: "https://a05-tiles-gallery.vercel.app/", // Live URL link
       github: "https://github.com/atik783505/A05-tiles-gallery"
     },
     color: "accent2"
