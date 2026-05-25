@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Magnetic from "@/components/Magnetic";
+import "devicon/devicon.min.css";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -27,6 +28,7 @@ export default function Footer() {
             <div className="font-mono text-[10px] text-accent tracking-wider uppercase">// Sitemap</div>
             <div className="flex flex-col gap-2.5">
               <a href="#home" className="text-muted text-[13px] hover:text-accent transition-colors w-max font-light">Home</a>
+              <a href="#about" className="text-muted text-[13px] hover:text-accent transition-colors w-max font-light">About</a>
               <a href="#education" className="text-muted text-[13px] hover:text-accent transition-colors w-max font-light">Education</a>
               <a href="#projects" className="text-muted text-[13px] hover:text-accent transition-colors w-max font-light">Projects</a>
               <a href="#skills" className="text-muted text-[13px] hover:text-accent transition-colors w-max font-light">Skills</a>
@@ -40,8 +42,8 @@ export default function Footer() {
               <a href="mailto:atik13672@gmail.com" className="text-muted text-[13px] hover:text-accent transition-colors w-max font-light">
                 atik13672@gmail.com
               </a>
-              <a href="tel:+88012345678" className="text-muted text-[13px] hover:text-accent transition-colors w-max font-light">
-                +88001600690954
+              <a href="tel:+8801600690954" className="text-muted text-[13px] hover:text-accent transition-colors w-max font-light">
+                +880 1600-690954
               </a>
               <div className="text-[13px] text-muted/60 font-light">
                 Cumilla, Bangladesh
@@ -60,10 +62,10 @@ export default function Footer() {
           {/* Socials with Magnetic Pull */}
           <div className="flex gap-4">
             {[
-              { label: "GitHub", icon: "⌥", href: "https://github.com" },
-              { label: "LinkedIn", icon: "in", href: "https://linkedin.com" },
-              { label: "Twitter", icon: "𝕏", href: "https://x.com" },
-              { label: "Dribbble", icon: "◉", href: "https://dribbble.com" },
+              { label: "GitHub", icon: "devicon-github-original", href: "https://github.com/atik783505" },
+              { label: "LinkedIn", icon: "devicon-linkedin-plain", href: "https://www.linkedin.com/in/atikur-rahman-ar/" },
+              { label: "Twitter", icon: "devicon-twitter-original", href: "https://x.com/AtikurRahm98623" },
+              { label: "Facebook", icon: "devicon-facebook-plain", href: "https://facebook.com" },
             ].map((social) => (
               <Magnetic key={social.label}>
                 <a
@@ -71,9 +73,9 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   title={social.label}
-                  className="w-10 h-10 glass flex items-center justify-center text-[14px] text-muted hover:text-accent hover:border-accent/40 shadow-sm"
+                  className="w-10 h-10 glass flex items-center justify-center text-[15px] text-muted hover:text-accent hover:border-accent/40 shadow-sm"
                 >
-                  {social.icon}
+                  <i className={social.icon}></i>
                 </a>
               </Magnetic>
             ))}

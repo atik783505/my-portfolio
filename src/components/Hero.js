@@ -5,6 +5,8 @@ import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import Magnetic from "@/components/Magnetic";
 import logo from "../../public/Images/atik.png";
+import "devicon/devicon.min.css";
+import Marquee from "@/components/Marquee";
 
 /* ─── Animation Variants ─────────────────────────────────────── */
 const fadeUp = {
@@ -71,7 +73,7 @@ export default function Hero() {
       {/* Cinematic top line */}
       <div className="absolute top-[110px] left-0 right-0 h-px bg-glass-border z-[1]" />
 
-      <div className="max-w-[1160px] mx-auto px-6 sm:px-10 w-full relative z-[2]">
+      <div className="max-w-[1160px] mx-auto px-6 sm:px-10 w-full relative z-[2] flex flex-col gap-16">
 
         {/* Mobile: image top → text below | Desktop: text left, image right */}
         <div className="flex flex-col-reverse lg:grid lg:grid-cols-[1fr_460px] lg:items-center gap-14 lg:gap-10">
@@ -142,6 +144,32 @@ export default function Hero() {
               </Magnetic>
             </motion.div>
 
+            {/* Social Links */}
+            <motion.div variants={fadeUp} custom={0.55} initial="hidden" animate={mounted ? "show" : "hidden"}
+              className="flex items-center gap-4 pt-3 flex-wrap">
+              <span className="font-mono text-[9px] text-muted/50 tracking-wider uppercase select-none">// Connect</span>
+              <div className="flex gap-3">
+                {[
+                  { label: "GitHub", icon: "devicon-github-original", href: "https://github.com/atik783505" },
+                  { label: "LinkedIn", icon: "devicon-linkedin-plain", href: "https://www.linkedin.com/in/atikur-rahman-ar/" },
+                  { label: "Twitter", icon: "devicon-twitter-original", href: "https://x.com/AtikurRahm98623" },
+                  { label: "Facebook", icon: "devicon-facebook-plain", href: "https://www.facebook.com/atikur.rahman.235972" },
+                ].map((social) => (
+                  <Magnetic key={social.label}>
+                    <a
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={social.label}
+                      className="w-9 h-9 glass flex items-center justify-center rounded-xl border border-glass-border hover:border-accent/40 text-muted hover:text-accent shadow-sm transition-all duration-300"
+                    >
+                      <i className={`${social.icon} text-[15px]`}></i>
+                    </a>
+                  </Magnetic>
+                ))}
+              </div>
+            </motion.div>
+
           </div>
 
           {/* ══ RIGHT — Floating image ══ */}
@@ -198,6 +226,16 @@ export default function Hero() {
           </motion.div>
 
         </div>
+
+        {/* Embedded Marquee at the bottom of Hero */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.7, ease: "easeOut" }}
+          className="w-full relative z-10"
+        >
+          <Marquee />
+        </motion.div>
       </div>
 
       {/* Scroll indicator */}
