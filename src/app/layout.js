@@ -26,8 +26,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata = {
-  title: "Atikur Rahman — Premium Developer Portfolio",
-  description: "Full-stack MERN developer crafting immersive, high-performance, and visually stunning web applications.",
+  title: "Atikur Rahman | MERN Stack Developer",
+  description: "MERN Stack developer crafting immersive, high-performance, and visually stunning web applications.",
 };
 
 export default function RootLayout({ children }) {
