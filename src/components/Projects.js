@@ -11,7 +11,7 @@ const projects = [
     {
     title: "SkillSwap — Freelance Micro-Task Marketplace",
     desc: "A full-stack freelancing micro-task platform where users can post tasks and complete tasks posted by others. Features role-based authentication (admin, task-poster, worker), dedicated dashboards per role, and a complete task lifecycle from posting to completion and review.",
-    icon: "/Images/skillswap.png",
+    icon: "/Images/skillswap.PNG",
     tags: ["Next.js", "Express.js", "Better Auth", "JWT", "Framer Motion", "MongoDB"],
     links: { demo: "https://skillswap-client-beryl-three.vercel.app/", github: "https://github.com/atik783505/skillswap-client" },
     featured: true,
