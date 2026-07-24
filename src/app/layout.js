@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollProvider from "@/components/ScrollProvider";
 import LoadingScreen from "@/components/LoadingScreen";
+import ScrollProgressBar from "@/components/ScrollProgressBar";
 
 const syne = Syne({
   subsets: ["latin"],
@@ -28,6 +29,11 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata = {
   title: "Atikur Rahman | MERN Stack Developer",
   description: "MERN Stack developer crafting immersive, high-performance, and visually stunning web applications.",
+  icons: {
+    icon: "/Images/atik.png",
+    shortcut: "/Images/atik.png",
+    apple: "/Images/atik.png",
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -39,6 +45,7 @@ export default function RootLayout({ children }) {
       <body className="bg-bg text-text font-outfit antialiased selection:bg-accent/30 selection:text-accent overflow-x-hidden">
         <ScrollProvider>
           <LoadingScreen />
+          <ScrollProgressBar />
           <CustomCursor />
           <Background />
           <Navbar />

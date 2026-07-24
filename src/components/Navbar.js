@@ -1,15 +1,16 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Magnetic from "@/components/Magnetic";
 
 const navLinks = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
+  { name: "Skills", href: "#skills" },
   { name: "Education", href: "#education" },
   { name: "Projects", href: "#projects" },
-  { name: "Skills", href: "#skills" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -17,6 +18,7 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState("home");
   const [isOpen, setIsOpen] = useState(false);
   const [theme, setTheme] = useState("dark");
+  const pathname = usePathname();
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("portfolio-theme");
@@ -39,22 +41,43 @@ export default function Navbar() {
   };
 
   useEffect(() => {
+    // Only run the observer on the home page where sections exist
+    if (pathname !== "/") {
+      setActiveSection("");
+      return;
+    }
+
+    const sectionIds = navLinks.map((l) => l.href.slice(1));
+
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visible.length > 0) {
+          setActiveSection(visible[0].target.id);
+        }
       },
-      { threshold: 0.25 }
+      {
+        rootMargin: "-15% 0px -70% 0px",
+        threshold: [0, 0.1, 0.25, 0.5, 0.75, 1],
+      }
     );
 
-    const sections = document.querySelectorAll("section[id]");
-    sections.forEach((section) => observer.observe(section));
+    // Delay so DOM sections are fully mounted after navigation
+    const timer = setTimeout(() => {
+      sectionIds.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) observer.observe(el);
+      });
+    }, 400);
 
-    return () => sections.forEach((section) => observer.unobserve(section));
-  }, []);
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    };
+  }, [pathname]);
 
   // Lock scroll when mobile menu is open
   useEffect(() => {
@@ -85,7 +108,7 @@ export default function Navbar() {
         initial={{ y: -100, x: "-50%", opacity: 0 }}
         animate={{ y: 0, x: "-50%", opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="fixed top-5 left-1/2 z-[100] w-[90%] max-w-[1100px] flex items-center justify-between bg-[rgba(5,5,10,0.7)] backdrop-blur-[24px] border border-glass-border rounded-[50px] p-2 px-5 md:pl-6 shadow-xl select-none"
+        className="fixed top-5 left-1/2 z-[100] w-[90%] max-w-[1100px] flex items-center justify-between bg-bg/80 backdrop-blur-[24px] border border-glass-border rounded-[50px] p-2 px-5 md:pl-6 shadow-xl select-none"
       >
         {/* Left Side: Brand Logo */}
         <Magnetic range={30} actionShift={0.2}>
@@ -106,7 +129,7 @@ export default function Navbar() {
                 href={link.href}
                 className={`block text-[12px] font-medium px-4 py-1.5 rounded-[30px] transition-all duration-300 ${
                   activeSection === link.href.slice(1)
-                    ? "bg-accent text-bg font-semibold shadow-sm"
+                    ? "bg-accent text-[#05050a] font-semibold shadow-sm"
                     : "text-muted hover:text-text hover:bg-glass"
                 }`}
               >

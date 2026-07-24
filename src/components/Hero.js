@@ -94,7 +94,7 @@ export default function Hero() {
               <span className="block text-text">Atikur</span>
               <span className="block text-accent">Rahman<span className="text-text">.</span></span>
               <span className="block mt-2 text-muted font-normal italic text-[0.52em] leading-snug">
-                Full-Stack MERN Developer
+                MERN Stack Developer
               </span>
             </motion.h1>
 
@@ -201,7 +201,7 @@ export default function Hero() {
                 <div className="absolute inset-0 grid-overlay opacity-20 pointer-events-none" />
                 <Image
                   src={logo}
-                  alt="Atikur Rahman — Full-Stack Developer"
+                  alt="Atikur Rahman — MERN Stack Developer"
                   fill priority
                   sizes="(max-width: 640px) 300px, 340px"
                   className="object-cover object-top transition-transform duration-700 group-hover:scale-105"

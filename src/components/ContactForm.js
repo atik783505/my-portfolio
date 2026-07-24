@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Magnetic from "@/components/Magnetic";
+import RevealHeading from "@/components/RevealHeading";
 
 export default function ContactForm() {
   const [formState, setFormState] = useState({ name: "", email: "", subject: "", message: "" });
@@ -61,15 +62,26 @@ export default function ContactForm() {
           Contact
         </div>
 
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+        {/* Open to Work badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="font-syne font-bold text-[clamp(28px,4vw,42px)] leading-[1.15] tracking-tight mb-16 select-none"
+          transition={{ duration: 0.6 }}
+          className="inline-flex items-center gap-2.5 rounded-full px-4 py-1.5 text-[11px] font-mono tracking-widest border border-accent/25 bg-accent/6 text-accent select-none mb-6"
         >
-          Let's Design <em className="italic text-accent">Together</em>
-        </motion.h2>
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+          </span>
+          Open to Work · Available Now
+        </motion.div>
+
+        <RevealHeading
+          text="Let's Design"
+          italicText="Together"
+          className="font-syne font-bold text-[clamp(28px,4vw,42px)] leading-[1.15] tracking-tight mb-16 select-none"
+        />
 
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 items-start">
           {/* Left Column: Contact Details */}

@@ -3,11 +3,13 @@
 import { useEffect, useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import "devicon/devicon.min.css";
+import RevealHeading from "@/components/RevealHeading";
 
 /* ─── Skill progress bars ────────────────────────────────────── */
 const skillBars = [
   { name: "React / Next.js", level: 95, category: "Frontend" },
   { name: "JavaScript (ES6)", level: 93, category: "Frontend" },
+  { name: "TypeScript", level: 40, category: "Frontend" },
   { name: "CSS / Tailwind", level: 92, category: "Frontend" },
   { name: "Node.js / Express", level: 93, category: "Backend" },
   { name: "MongoDB", level: 88, category: "Backend" },
@@ -20,20 +22,23 @@ const staticSkills = [
   { name: "HTML5", iconClass: "devicon-html5-plain colored" },
   { name: "CSS3", iconClass: "devicon-css3-plain colored" },
   { name: "JavaScript", iconClass: "devicon-javascript-plain colored" },
+  { name: "TypeScript", iconClass: "devicon-typescript-plain colored" },
   { name: "React", iconClass: "devicon-react-original colored" },
   { name: "Next.js", iconClass: "devicon-nextjs-original colored" },
   { name: "Node.js", iconClass: "devicon-nodejs-plain colored" },
   { name: "Express", iconClass: "devicon-express-original colored" },
   { name: "Tailwind CSS", iconClass: "devicon-tailwindcss-original colored" },
   { name: "MongoDB", iconClass: "devicon-mongodb-plain colored" },
+  { name: "JWT", iconClass: null, emoji: "🔐" },
+  { name: "Better Auth", iconClass: "devicon-oauth-plain colored" },
+  { name: "Role-Based Auth", iconClass: null, emoji: "🛡️" },
+  { name: "Stripe", iconClass: "devicon-stripe-plain colored" },
   { name: "Vite", iconClass: "devicon-vite-plain colored" },
   { name: "Vercel", iconClass: "devicon-vercel-original colored" },
   { name: "Netlify", iconClass: "devicon-netlify-plain colored" },
   { name: "Git", iconClass: "devicon-git-plain colored" },
   { name: "GitHub", iconClass: "devicon-github-original colored" },
   { name: "RESTful API", iconClass: "devicon-postman-plain colored" },
-  { name: "UI Libraries", iconClass: "devicon-materialui-plain colored" },
-  { name: "Better Auth", iconClass: "devicon-oauth-plain colored" },
 ];
 
 /* ─── Animated count-up number ──────────────────────────────── */
@@ -88,15 +93,11 @@ export default function Skills() {
         </div>
 
         {/* Heading */}
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
+        <RevealHeading
+          text="My Technical"
+          italicText="Expertise"
           className="font-syne font-bold text-[clamp(28px,4vw,42px)] leading-[1.15] tracking-tight mb-16 select-none"
-        >
-          My Technical <em className="italic text-accent">Expertise</em>
-        </motion.h2>
+        />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
@@ -166,7 +167,11 @@ export default function Skills() {
                     whileHover={{ scale: 1.06, borderColor: "var(--color-accent)" }}
                     className="inline-flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white/[0.02] border border-glass-border backdrop-blur-sm transition-colors duration-300 group cursor-default"
                   >
-                    <i className={`${skill.iconClass} text-xl`}></i>
+                    {skill.iconClass ? (
+                      <i className={`${skill.iconClass} text-xl`}></i>
+                    ) : (
+                      <span className="text-lg leading-none">{skill.emoji}</span>
+                    )}
                     <span className="font-syne font-medium text-[13px] text-muted group-hover:text-white transition-colors duration-300 select-none">
                       {skill.name}
                     </span>

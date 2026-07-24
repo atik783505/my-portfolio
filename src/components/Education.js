@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion } from "framer-motion";
+import RevealHeading from "@/components/RevealHeading";
 
 const education = [
   {
@@ -99,15 +100,11 @@ export default function Education() {
         <div className="flex items-center gap-2.5 font-mono text-[11px] text-accent tracking-[0.18em] uppercase mb-4 before:content-[''] before:block before:w-6 before:h-px before:bg-accent select-none">
           Education
         </div>
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
+        <RevealHeading
+          text="Academic"
+          italicText="Journey"
           className="font-syne font-bold text-[clamp(28px,4vw,42px)] leading-[1.15] tracking-tight mb-16 select-none"
-        >
-          Academic <em className="italic text-accent">Journey</em>
-        </motion.h2>
+        />
 
         {/* Card Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

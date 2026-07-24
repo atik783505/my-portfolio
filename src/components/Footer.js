@@ -19,7 +19,7 @@ export default function Footer() {
               AR<span className="text-accent">.</span>
             </div>
             <p className="text-[13px] text-muted leading-relaxed max-w-[280px] font-light">
-              Full-Stack Developer crafting clean, scalable, and beautiful digital experiences with the MERN stack.
+              MERN Stack Developer crafting clean, scalable, and beautiful digital experiences.
             </p>
           </div>
 
@@ -29,9 +29,10 @@ export default function Footer() {
             <div className="flex flex-col gap-2.5">
               <a href="#home" className="text-muted text-[13px] hover:text-accent transition-colors w-max font-light">Home</a>
               <a href="#about" className="text-muted text-[13px] hover:text-accent transition-colors w-max font-light">About</a>
+              <a href="#skills" className="text-muted text-[13px] hover:text-accent transition-colors w-max font-light">Skills</a>
               <a href="#education" className="text-muted text-[13px] hover:text-accent transition-colors w-max font-light">Education</a>
               <a href="#projects" className="text-muted text-[13px] hover:text-accent transition-colors w-max font-light">Projects</a>
-              <a href="#skills" className="text-muted text-[13px] hover:text-accent transition-colors w-max font-light">Skills</a>
+              <a href="#contact" className="text-muted text-[13px] hover:text-accent transition-colors w-max font-light">Contact</a>
             </div>
           </div>
 

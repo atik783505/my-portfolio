@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Magnetic from "@/components/Magnetic";
+import RevealHeading from "@/components/RevealHeading";
 
 export default function About() {
   return (
@@ -19,15 +20,11 @@ export default function About() {
           About Me
         </div>
         
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
+        <RevealHeading
+          text="My Story &"
+          italicText="Personality"
           className="font-syne font-bold text-[clamp(28px,4vw,42px)] leading-[1.15] tracking-tight mb-16 select-none"
-        >
-          My Story & <em className="italic text-accent">Personality</em>
-        </motion.h2>
+        />
 
         {/* Grid Container */}
         <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-12 items-start">
@@ -45,7 +42,7 @@ export default function About() {
             </h3>
             
             <p>
-              Hello! I'm <span className="text-text font-medium">Atikur Rahman</span>, a passionate Full-Stack MERN Developer based in Cumilla, Bangladesh. My fascination with computers started during my early academic years, which led me to pursue a <span className="text-accent font-mono font-medium">Diploma in Computer Science & Technology</span> at Feni Polytechnic Institute. 
+              Hello! I'm <span className="text-text font-medium">Atikur Rahman</span>, a passionate MERN Stack Developer based in Cumilla, Bangladesh. My fascination with computers started during my early academic years, which led me to pursue a <span className="text-accent font-mono font-medium">Diploma in Computer Science & Technology</span> at Feni Polytechnic Institute. 
             </p>
             
             <p>
